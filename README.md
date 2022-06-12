@@ -7,7 +7,7 @@
 ### 1. Problem
 
 Download TSP problem (PCB drilling problem) 
-> 🌐 link: from http://elib.zib.de/pub/mp- testdata/tsp/tsplib/tsplib.html
+> 🌐 link: from http://elib.zib.de/pub/mp-testdata/tsp/tsplib/tsplib.html
 
 The PCB drilling problem is to drill a PCB with minimizing
 
