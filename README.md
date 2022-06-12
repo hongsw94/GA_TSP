@@ -4,6 +4,13 @@
 
 ## Genetic Algorithm from scratch
 
+If you just want to check out the results please check `practice.ipynb`. There are some trial and errors included (e.g., Edge Recombination Crossover)
+
+If running, just run (only numpy and matplotlib is required)
+```
+python main.py
+```
+
 ### 1. Problem
 
 Download TSP problem (PCB drilling problem) 
