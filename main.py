@@ -1,7 +1,8 @@
 import os 
 import random
 import numpy as np
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
+import time  
 from collections import deque
 from core.evaluation import evaluate
 from core.read_tsp import read_tsp_data
@@ -48,11 +49,16 @@ config['TSIZE'] = TSIZE
 sols = initialize() 
 
 # main loop
+ts = time.time()
 for i in range(10000):
     sols = tournament(sols, config)
     sols = crossover(sols, crate=crossover_rate)
     sols = mutate(sols, mut_rate=mutation_rate)
-    if (i+1) % 10 == 0 :
+    if (i+1) % 100 == 0 :
         print(f"step {i+1} : ", end=""); print_evals_min(sols)
+te = time.time() 
+total_time_spent = te - ts
+print_results(solution=sols, tts=total_time_spent)
+
 
 plot_result(sols=sols)

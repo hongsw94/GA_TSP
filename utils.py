@@ -168,15 +168,29 @@ def print_evals_avg(solution : list, end='\n'):
         evaluations[i] = evaluate(x_sol, y_sol)
     avg = sum(evaluations) / len(evaluations)
     print(avg, end=end)
-    
 
-def plot_result(sols):
+def print_results(solution: list, tts: float, end='\n'):
+    evals = get_evals(solution)
+    print("Solution: ")
+    for e, i in enumerate(solution[evals.index(min(evals))]):
+        if (e+1) == len(solution[0]):
+            print(f"{i}"); break
+        print(f"{i} -> ", end='')
+    print("Evaluation of solution:", end=" "); print_evals_min(solution)
+    print("Total Time Spent (CPU): ", tts)
+    x_sol, y_sol = sol_to_coeff(solution=solution[evals.index(min(evals))], tsp_data=tsp_data) 
+
+def get_evals(sols):
     evals = [0] * len(sols)
 
     for i, sol in enumerate(sols):
         x_sol, y_sol = sol_to_coeff(solution=sol, tsp_data=tsp_data)
         # Evaluation of the solution (Euclidean distance)
         evals[i] = evaluate(x_sol, y_sol)
+    return evals
+
+def plot_result(sols):
+    evals = get_evals(sols)
         
     x_sol, y_sol = sol_to_coeff(solution=sols[evals.index(min(evals))], tsp_data=tsp_data)
     
